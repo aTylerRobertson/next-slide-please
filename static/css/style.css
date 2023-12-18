@@ -1,0 +1,282 @@
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,800;1,400;1,800&display=swap');
+
+/* Set variables */
+:root {
+  font-size: 150%;
+  --primary-hover: #2077fa;
+  --primary: #0066ff;
+  --secondary-hover: #ffd447;
+  --secondary: #ffc300;
+  --background: #ffffff;
+  --theatre-background: #000000;
+  --color: #000000;
+}
+
+body {
+  background: var(--background);
+  color: var(--color);
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.theatre-mode {
+  background: var(--theatre-background);
+}
+
+.not-displayed {
+  display: none;
+}
+
+iframe {
+  border: none;
+  outline: none;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+input {
+  outline: none;
+  font-size: 1rem;
+  border: 1px solid black;
+}
+
+hr {
+  width: 90%;
+  margin: 2rem auto;
+  color: var(--color);
+  border: 2px solid var(--color);
+  opacity: 0.3;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#container {
+  width: 666px;
+  max-width: 90vw;
+  margin: 2rem auto;
+}
+
+#container h1 {
+  color: var(--primary);
+  margin: 10px 0 0 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 3.5rem;
+  line-height: 4rem;
+}
+
+#container .secondary {
+  color: var(--secondary);
+}
+
+#container #header p {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+#container input {
+  width: 95%;
+  font-size: 1.2rem;
+  padding: .5rem;
+  margin: 1rem auto;
+}
+
+.btn {
+  border: 5px solid var(--background);
+  color: var(--background);
+  font-size: 2rem;
+  font-weight: 800;
+  display: block;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  transition: background ease .25s,
+              border ease .25s;
+}
+
+.btn:hover {
+  border: 5px solid black;
+  text-decoration: none;
+}
+
+.btn.inactive {
+  background: #666666;
+  color: #777777;
+  cursor: not-allowed;
+}
+
+.btn.inactive:hover {
+  border: 5px solid var(--background);
+  background: #666666;
+  cursor: default;
+}
+
+.btn-primary {
+  background: var(--primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--secondary-hover);
+}
+
+/* Presenter-specific styles */
+#presenterScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#presenterControls {
+  background: var(--theatre-background);
+  color: var(--background);
+  font-size: 1rem;
+  position: absolute;
+  bottom: 0.2rem;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  text-align: center;
+  opacity: 0;
+  display: flex;
+  transition: opacity ease .2s;
+}
+
+#presenterControls:hover {
+  opacity: 1;
+  color: #ffffff;
+}
+
+#presenterControls #next,
+#presenterControls #prev,
+#presenterControls #reset,
+#presenterControls a,
+#presenterControls b,
+#presenterControls input {
+  flex: 1;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--background);
+}
+
+#presenterControls > * {
+  padding: 1rem;
+}
+
+#presenterControls>*:hover {
+  background: var(--primary-hover);
+}
+
+#presenterControls input {
+  background: #111111;
+  color: #bebebe;
+  border: 1px solid white;
+}
+
+#presentation {
+  clear: both;
+  width: 100vw;
+}
+
+#slideA,
+#slideB,
+#slideC {
+  background: var(--theatre-background);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+/* Used to hide next/previous slides while letting their iframe contents load */
+.invisible {
+  height: 0 !important;
+  width: 0 !important;
+  opacity: 0 !important;
+}
+
+/* Viewer-specific styles */
+
+#inputRoomCode {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#error {
+  text-align: center;
+  color: red;
+}
+
+#viewerControls {
+  width: 666px;
+  max-width: 90vw;
+  margin: 2rem auto;
+}
+
+#viewerNext {
+  padding: 2rem 1rem;
+  background: #1abc9c;
+}
+
+#viewerPrev {
+  padding: 2rem 1rem;
+  background: #e74c3c;
+}
+
+#viewerControls #quit {
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: block;
+  padding: 1rem 3rem;
+  margin: 4rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: var(--secondary);
+  transition: background ease .25s;
+}
+
+#viewerControls #quit:hover {
+  background: var(--secondary-hover);
+}
+
+/* Mobile adjustments */
+@media only screen and (max-width: 666px) {
+  :root {
+    font-size: 120%;
+  }
+  
+  #intro h1 {
+    font-size: 2.5rem;
+    line-height: 2rem;
+  }
+
+  #intro .header p {
+    font-size: 1.2rem;
+  }
+}

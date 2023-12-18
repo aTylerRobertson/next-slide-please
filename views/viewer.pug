@@ -1,0 +1,20 @@
+include head
+body
+  section(id="container")
+    h1(class="secondary") CLICK THE BUTTONS
+    p You're going to be one of the people in control of your presentation's slides!
+    p(id="instructions") Enter the 4-digit room code from the presenter's screen to join in.
+    p
+      input(type="text" id="inputRoomCode" autocomplete="off")
+    p
+      a(class="btn btn-primary inactive" href="#" id="join") join
+      a(class="btn btn-secondary" href="/") go back
+
+  section(id="viewerControls" class="not-displayed")
+    span(id="viewerNext" class="btn") ⏭️
+    span(id="viewerPrev" class="btn") ⏮️
+    p
+      a(id="quit" href="/") leave
+
+  include javascript
+  script(src="/js/viewer.js")
